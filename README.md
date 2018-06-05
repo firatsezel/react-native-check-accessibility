@@ -1,2 +1,53 @@
-# react-native-check-accessibility
-react-native-check-accessibility is a native module for react-native (=> 0.41.2) which gives information about accessibility option is enabled or not in both systems Android and iOS. 
+
+# react-native-react-native-check-accessibility
+
+## Getting started
+
+`$ npm install react-native-react-native-check-accessibility --save`
+
+### Mostly automatic installation
+
+`$ react-native link react-native-react-native-check-accessibility`
+
+### Manual installation
+
+
+#### iOS
+
+1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+2. Go to `node_modules` ➜ `react-native-react-native-check-accessibility` and add `RNReactNativeCheckAccessibility.xcodeproj`
+3. In XCode, in the project navigator, select your project. Add `libRNReactNativeCheckAccessibility.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+4. Run your project (`Cmd+R`)<
+
+#### Android
+
+1. Open up `android/app/src/main/java/[...]/MainActivity.java`
+  - Add `import com.reactlibrary.RNReactNativeCheckAccessibilityPackage;` to the imports at the top of the file
+  - Add `new RNReactNativeCheckAccessibilityPackage()` to the list returned by the `getPackages()` method
+2. Append the following lines to `android/settings.gradle`:
+  	```
+  	include ':react-native-react-native-check-accessibility'
+  	project(':react-native-react-native-check-accessibility').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-react-native-check-accessibility/android')
+  	```
+3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+  	```
+      compile project(':react-native-react-native-check-accessibility')
+  	```
+
+#### Windows
+[Read it! :D](https://github.com/ReactWindows/react-native)
+
+1. In Visual Studio add the `RNReactNativeCheckAccessibility.sln` in `node_modules/react-native-react-native-check-accessibility/windows/RNReactNativeCheckAccessibility.sln` folder to their solution, reference from their app.
+2. Open up your `MainPage.cs` app
+  - Add `using React.Native.Check.Accessibility.RNReactNativeCheckAccessibility;` to the usings at the top of the file
+  - Add `new RNReactNativeCheckAccessibilityPackage()` to the `List<IReactPackage>` returned by the `Packages` method
+
+
+## Usage
+```javascript
+import RNReactNativeCheckAccessibility from 'react-native-react-native-check-accessibility';
+
+// TODO: What to do with the module?
+RNReactNativeCheckAccessibility;
+```
+  

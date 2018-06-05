@@ -1,0 +1,25 @@
+
+{
+  "name": "react-native-check-accessibility",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "firat sezel",
+  "license": "GNU General Public License v3.0",
+  "peerDependencies": {
+    "react-native": "^0.41.2",
+    "react-native-windows": "0.41.0-rc.1"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firatsezel/react-native-check-accessibility.git"
+  }
+
+}
