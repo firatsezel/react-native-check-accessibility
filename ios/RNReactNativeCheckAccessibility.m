@@ -1,21 +1,23 @@
 
 #import "RNReactNativeCheckAccessibility.h"
-[[NSNotificationCenter defaultCenter] addObserver:self
-                                         selector:@selector(voiceOverStatusChanged)
-                                             name:UIAccessibilityVoiceOverStatusChanged
-                                           object:nil];
+#import "RCTAccessibilityManager.h"
+#import "RCTUIManager.h"
+
 
 @implementation RNReactNativeCheckAccessibility
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(isAccessibilityEnabled:(RCTResponseSenderBlock)callback)
+- (NSDictionary *)constantsToExport
 {
-    if(!UIAccessibilityIsVoiceOverRunning())
+    BOOL isVoiveOverRunning = (UIAccessibilityIsVoiceOverRunning() ? 1 : 0);
+    
+    if(!isVoiveOverRunning)
     {
-        callback(@[[NSString '0'], events]);
+        return @{ @"isAccessibilityEnabled": @"0" };
     }
-    callback(@[[NSString '1'], events]);
+    
+    return @{ @"isAccessibilityEnabled": @"1" };
 }
 
 @end
