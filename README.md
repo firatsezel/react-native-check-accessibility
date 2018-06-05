@@ -35,6 +35,9 @@
   	```
 ## Usage
 ```javascript
+
+For Android :
+
 import RNReactNativeCheckAccessibility from 'react-native-check-accessibility';
 
 RNReactNativeCheckAccessibility.isAccessibilityEnabled((result) => {
@@ -42,5 +45,13 @@ RNReactNativeCheckAccessibility.isAccessibilityEnabled((result) => {
 		... // Accessibility Enabled
 	}
 });
+
+For iOS :
+
+import RNReactNativeCheckAccessibility from 'react-native-check-accessibility';
+
+if (RNReactNativeCheckAccessibility.isAccessibilityEnabled === '1') {
+	... // Accessibility Enabled
+}
 ```
   
