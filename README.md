@@ -1,5 +1,5 @@
 
-# react-native-react-native-check-accessibility
+# react-native-check-accessibility
 
 ## Getting started
 
