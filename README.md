@@ -3,11 +3,11 @@
 
 ## Getting started
 
-`$ npm install react-native-react-native-check-accessibility --save`
+`$ npm install react-native-check-accessibility --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-react-native-check-accessibility`
+`$ react-native link react-native-check-accessibility`
 
 ### Manual installation
 
@@ -33,21 +33,14 @@
   	```
       compile project(':react-native-react-native-check-accessibility')
   	```
-
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the `RNReactNativeCheckAccessibility.sln` in `node_modules/react-native-react-native-check-accessibility/windows/RNReactNativeCheckAccessibility.sln` folder to their solution, reference from their app.
-2. Open up your `MainPage.cs` app
-  - Add `using React.Native.Check.Accessibility.RNReactNativeCheckAccessibility;` to the usings at the top of the file
-  - Add `new RNReactNativeCheckAccessibilityPackage()` to the `List<IReactPackage>` returned by the `Packages` method
-
-
 ## Usage
 ```javascript
 import RNReactNativeCheckAccessibility from 'react-native-react-native-check-accessibility';
 
-// TODO: What to do with the module?
-RNReactNativeCheckAccessibility;
+RNReactNativeCheckAccessibility.isAccessibilityEnabled((result) => {
+	if (result === '1') {
+		... // Accessibility Enabled
+	}
+});
 ```
   
