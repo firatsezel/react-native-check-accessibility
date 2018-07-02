@@ -36,7 +36,9 @@
 ## Usage
 ```javascript
 
-For Android :
+For Android:
+
+// Checking if accessibility enabled on device
 
 import RNReactNativeCheckAccessibility from 'react-native-check-accessibility';
 
@@ -53,5 +55,12 @@ import RNReactNativeCheckAccessibility from 'react-native-check-accessibility';
 if (RNReactNativeCheckAccessibility.isAccessibilityEnabled === '1') {
 	... // Accessibility Enabled
 }
+
+
+// if you want to make a specific announcement (iOS & Android)
+
+RNReactNativeCheckAccessibility.announce(announceText);
+
 ```
+
   
