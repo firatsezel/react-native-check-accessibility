@@ -8,6 +8,11 @@
 
 RCT_EXPORT_MODULE();
 
+RCT_EXPORT_METHOD(announce:(NSString *)message)
+{
+     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"message");
+}
+
 - (NSDictionary *)constantsToExport
 {
     BOOL isVoiveOverRunning = (UIAccessibilityIsVoiceOverRunning() ? 1 : 0);
