@@ -35,4 +35,21 @@ public class RNReactNativeCheckAccessibilityModule extends ReactContextBaseJavaM
       }
       callback.invoke("1", null);
   }
+
+  @ReactMethod
+  void announce(String message) {
+      final AccessibilityManager accessibilityManager = (AccessibilityManager) this.reactContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
+      if (accessibilityManager == null || !accessibilityManager.isEnabled()) {
+          return;
+      }
+
+      final int eventType = AccessibilityEventCompat.TYPE_ANNOUNCEMENT;
+      final AccessibilityEvent event = AccessibilityEvent.obtain(eventType);
+      event.getText().add(message);
+      event.setClassName(RNReactNativeCheckAccessibilityModule.class.getName());
+      event.setPackageName(this.reactContext.getPackageName());
+
+      accessibilityManager.sendAccessibilityEvent(event);
+  }
+
 }
