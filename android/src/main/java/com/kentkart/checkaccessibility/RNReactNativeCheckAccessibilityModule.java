@@ -37,6 +37,16 @@ public class RNReactNativeCheckAccessibilityModule extends ReactContextBaseJavaM
   }
 
   @ReactMethod
+  public void isTouchExplorationEnabled(Callback callback) {
+      final AccessibilityManager accessibilityManager = (AccessibilityManager) this.reactContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
+      if (accessibilityManager == null || !accessibilityManager.isEnabled() || !accessibilityManager.isTouchExplorationEnabled()) {
+          callback.invoke("0", null);
+          return;
+      }
+      callback.invoke("1", null);
+  }
+
+  @ReactMethod
   void announce(String message) {
       final AccessibilityManager accessibilityManager = (AccessibilityManager) this.reactContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
       if (accessibilityManager == null || !accessibilityManager.isEnabled()) {
