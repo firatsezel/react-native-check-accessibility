@@ -13,9 +13,7 @@ RCT_EXPORT_METHOD(announce:(NSString *)message)
      UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"message");
 }
 
-RCT_EXPORT_METHOD(isVoiceOverRunning,
-    resolver:(RCTPromiseResolveBlock)resolve
-    rejecter:(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(isVoiceOverRunning:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 {
     @try {
         resolve(UIAccessibilityIsVoiceOverRunning() ? @"1" : @"0");
@@ -28,9 +26,9 @@ RCT_EXPORT_METHOD(isVoiceOverRunning,
 
 - (NSDictionary *)constantsToExport
 {
-    BOOL isVoiveOverRunning = (UIAccessibilityIsVoiceOverRunning() ? 1 : 0);
+    BOOL isVoiceOverRunning = (UIAccessibilityIsVoiceOverRunning() ? 1 : 0);
     
-    if(!isVoiveOverRunning)
+    if(!isVoiceOverRunning)
     {
         return @{ @"isAccessibilityEnabled": @"0" };
     }
