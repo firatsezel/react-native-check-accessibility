@@ -1,5 +1,5 @@
 
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules } from 'react-native';
 
 const { RNReactNativeCheckAccessibility } = NativeModules;
 
