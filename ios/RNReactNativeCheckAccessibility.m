@@ -10,7 +10,7 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(announce:(NSString *)message)
 {
-     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, @"message");
+     UIAccessibilityPostNotification(UIAccessibilityAnnouncementNotification, message);
 }
 
 RCT_EXPORT_METHOD(isVoiceOverRunning:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
