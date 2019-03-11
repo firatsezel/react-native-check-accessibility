@@ -38,6 +38,16 @@
 
 For Android:
 
+// Checking if Voice Over on iOS or Talkback on Android is enabled
+
+import RNReactNativeCheckAccessibility from 'react-native-check-accessibility';
+
+RNReactNativeCheckAccessibility.isVoiceOverRunning().then(result => {
+	if (result === "1") {
+		... // Voice Over / Talkback Enabled
+	}
+})
+
 // Checking if accessibility enabled on device
 
 import RNReactNativeCheckAccessibility from 'react-native-check-accessibility';
