@@ -1,12 +1,12 @@
 
 Pod::Spec.new do |s|
   s.name         = "RNReactNativeCheckAccessibility"
-  s.version      = "1.0.0"
+  s.version      = package['version']
   s.summary      = "RNReactNativeCheckAccessibility"
   s.description  = <<-DESC
                   RNReactNativeCheckAccessibility
                    DESC
-  s.homepage     = ""
+  s.homepage     = package['homepage']
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
