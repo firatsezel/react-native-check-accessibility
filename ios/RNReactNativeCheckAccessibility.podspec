@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/firatsezel/react-native-check-accessibility.git", :tag => "master" }
-  s.source_files  = "RNReactNativeCheckAccessibility/**/*.{h,m}"
+  s.source_files  = "*.{h,m}"
   s.requires_arc = true
 
   s.dependency "React"
