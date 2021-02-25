@@ -13,6 +13,9 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Promise;
 
+import android.text.TextUtils;
+import android.provider.Settings;
+
 public class RNReactNativeCheckAccessibilityModule extends ReactContextBaseJavaModule {
   
     private final ReactApplicationContext reactContext;
@@ -27,14 +30,41 @@ public class RNReactNativeCheckAccessibilityModule extends ReactContextBaseJavaM
       return "RNReactNativeCheckAccessibility";
     }
   
+   
+
+    private boolean isAccessibilitySettingsOn(Context mContext) {
+      int accessibilityEnabled = 0;
+      final String service = this.reactContext.getPackageName() + "/" + RNReactNativeCheckAccessibilityModule.class.getCanonicalName();
+      try {
+        accessibilityEnabled = Settings.Secure.getInt(
+                mContext.getApplicationContext().getContentResolver(),
+                android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
+      } catch (Settings.SettingNotFoundException e) {
+      }
+      TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
+  
+      if (accessibilityEnabled == 1) {
+        String settingValue = Settings.Secure.getString(
+                mContext.getApplicationContext().getContentResolver(),
+                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+  
+        if (settingValue != null) {
+          if (settingValue.indexOf(this.reactContext.getPackageName()) > -1) {
+            return true;
+          }
+        }
+      }
+  
+      return false;
+    }
+  
     @ReactMethod
     public void isAccessibilityEnabled(Callback callback) {
-        final AccessibilityManager accessibilityManager = (AccessibilityManager) this.reactContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
-        if (accessibilityManager == null || !accessibilityManager.isEnabled()) {
-            callback.invoke("0", null);
-            return;
-        }
+      if (!isAccessibilitySettingsOn(this.reactContext.getApplicationContext())) {
+        callback.invoke("0", null);
+      } else {
         callback.invoke("1", null);
+      }
     }
   
     @ReactMethod
